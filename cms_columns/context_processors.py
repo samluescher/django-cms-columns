@@ -7,12 +7,9 @@ def get_auto_thumbnail_size(column_width):
         width = grid_spans * settings.CMS_COLUMNS_GRID_WIDTH_PX
         if hasattr(settings, 'CMS_COLUMNS_GUTTER_WIDTH_PX'):
             width += (grid_spans - 1) * settings.CMS_COLUMNS_GUTTER_WIDTH_PX
-        
         dict.update({
-            'thumbnail_size': '%sx%s' % (width, width),
-            'column_width_px': width,
+            'thumbnail_size': (width, width * 2),
         })
-
     return dict
 
 def auto_thumbnail_size(request):
