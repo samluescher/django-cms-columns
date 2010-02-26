@@ -19,7 +19,7 @@ Suppose you have a CMS plugin called `HelloWorldPlugin`, which you put on your p
     <p>Hello, world!</p>
     <p>Hello again, world!</p>
     
-Now you would like to have the second plugin appear not below the first one, but next to it, with one plugin occupying 75% of the page width and the other one filling up the remaining 25%. To achieve this, you install the cms_columns app, set the respective column widths, and let the following column template take care of the rest:  
+Now you would like to have the second plugin appear not below the first one, but next to it, with one plugin occupying 75% of the page width and the other one filling up the remaining 25%. To achieve this, you install the `cms_columns` app, set the respective column widths, and let the following column template take care of the rest:  
     
     <!-- column.yaml.html -->
     {% if plugin.first %}
@@ -85,7 +85,7 @@ In order to add column widths to any installed CMS plugin, you can put `CMS_COLU
         ('myapp.models.MySpecialPluginModel', 'myapp.cms_plugins.MySpecialPlugin'),
     )
 
-This setting results in the `cms_columns.register()` method being called for the two plugins. That method adds the `column_width` field to each model. __Note that you also need to add this field to your database tables__ if you have already set up your database.
+This setting results in the `cms_columns.register()` method being called for the two plugins. That method adds the `column_width` field to each model. __Note that you also need to add this field to your database tables__ if you already set up your database.
 
 Apart from the model, you can also specify the plugin class by putting an item in this setting that is a two-tuple (which is the case for the second item, `MySpecialPluginModel`). By doing this you are making sure that `column_width` will be editable if your plugin class contains [fieldsets](http://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.fieldsets). 
 
@@ -94,7 +94,7 @@ Apart from the model, you can also specify the plugin class by putting an item i
 
 __`CMS_COLUMNS_WIDTH_CHOICES`__
 
-Using this setting you can define the values to choose from for the `column_width` field. By default these are 100, 75, 50 and 25. The setting value should be a [two-tuple](http://www.djangoproject.com/documentation/models/choices/). 
+Using this setting you can define the values to choose from for the `column_width` field. By default these are 100, 75, 50 and 25. The value should be a two-tuple [as explained in the Django documentation](http://www.djangoproject.com/documentation/models/choices/). 
 
 __`CMS_COLUMNS_PLACEHOLDERS`__
 
@@ -140,7 +140,7 @@ These three settings are used by the `auto_thumbnail_size` template context proc
 
 __Example usage__ 
 
-Staying with the example above, suppose our original image has a resolution of 1024×768. Our grid width is 170px and the gutter width is 18px. The plugin being rendered has a `column_width` of 75, meaning that the picture should span three columns. The `auto_thumbnail_size` processor populated the context with the variable `column_width_px = 546` (because 3 * 170 + 2 * 18 = 546). This is how wide the image should be. The image should be scaled down maintaining aspect ratio, so it sould have a height of 410px (because 546 / 1024 * 768 = 409.5). But how do we figure this out in the template? Luckily, Django comes with a built-in template tag called `widthratio` which does exactly this calculation:
+Staying with the example above, suppose our original image has a resolution of 1024×768. Our grid width is 170px and the gutter width is 18px. The plugin being rendered has a `column_width` of 75, meaning that the picture should span three columns. The `auto_thumbnail_size` processor populated the context with the variable `column_width_px = 546` (because 3 × 170 + 2 * 18 = 546). This is how wide the image should be. The image should be scaled down maintaining aspect ratio, so it should have a height of 410px (because 546 / 1024 × 768 = 409.5). But how do we figure this out in the template? Luckily, Django comes with a built-in template tag called `widthratio` which does exactly this calculation:
 
     <!-- my-image-template.html -->
     <img src="{{ my_image.url }}" width="{{ column_width_px }}" height="{% widthratio column_width_px my_image.width my_image.height %}" />
