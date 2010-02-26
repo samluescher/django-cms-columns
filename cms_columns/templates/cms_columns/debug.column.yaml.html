@@ -1,0 +1,17 @@
+{% if plugin.first %}
+<div class="subcolumns">
+{% endif %}
+    <div class="c{{ column_width }}{% if last_column %}r{% else %}l{% endif %}">
+        <div class="subc{% if last_column %}r{% else %}l{% endif %}" style="border: 1px grey solid">
+            <p style="background: lightyellow">{{ plugin.counter }}/{{ plugin.total }} [ {{ column_width }}%{% if last_column %}R{% endif %} {% if plugin.first %}first{% endif %} {% if plugin.last %}last{% endif %}]</p>
+            {{ content|safe }}
+        </div>
+    </div>
+{% if plugin.last %}
+</div>
+{% else %}
+{% if last_column %}
+</div>
+<div class="subcolumns">
+{% endif %}
+{% endif %}

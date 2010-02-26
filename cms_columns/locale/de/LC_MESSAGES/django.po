@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-15 17:37+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: __init__.py:21
+msgid "Column"
+msgstr "Spalte"
+
+#: cms_plugins.py:9
+msgid "Text column"
+msgstr "Textspalte"
+
+#: cms_plugins.py:14
+msgid "Manual break"
+msgstr "Manueller Umbruch"
+
+#: defaults.py:8
+msgid "Full page width"
+msgstr "Volle Seitenbreite"
+
+#: defaults.py:9 defaults.py:10 defaults.py:11 defaults.py:12 defaults.py:13
+#, python-format
+msgid "%s%% wide"
+msgstr "%s%% breit"
+
+#: models.py:14
+msgid "Column width"
+msgstr "Spaltenbreite"
