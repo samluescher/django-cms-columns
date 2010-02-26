@@ -122,7 +122,7 @@ If you are creating your own plugin that you want to have built-in column suppor
 Automatically fitting images into columns 
 -----------------------------------------
 
-A very handy feature of this application is the automatic calculation of thumbnail sizes according to column width. For instance, if you have four subcolumns, each of which are 170px wide (this is your grid width), and you would like to have a picture span three of those columns (or grid elements), you can use the following settings:
+A very handy feature of this application is the automatic calculation of thumbnail sizes according to column width. For instance, if you have four subcolumns, each of which is 170px wide (this is your grid width), and you would like to have a picture span three of those columns (or grid elements), you can use the following settings:
 
 __`CMS_COLUMNS_GRID_WIDTH`__
 
