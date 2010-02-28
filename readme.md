@@ -140,7 +140,7 @@ These three settings are used by the `auto_thumbnail_size` template context proc
 
 __Example usage__ 
 
-Staying with the example above, suppose our original image has a resolution of 1024×768. Our grid width is 170px and the gutter width is 18px. The plugin being rendered has a `column_width` of 75, meaning that the picture should span three columns. The `auto_thumbnail_size` processor populated the context with the variable `thumbnail_size = (546, 1092)` (because 3 × 170 + 2 * 18 = 546). This first element is how wide the image should be. The image should be scaled down maintaining aspect ratio, so it should have a height of 410px (because 546 / 1024 × 768 = 409.5). But how do we figure this out in the template? Luckily, Django comes with a built-in template tag called `widthratio` which does exactly this calculation:
+Staying with the example above, suppose our original image has a resolution of 1024×768. Our grid width is 170px and the gutter width is 18px. The plugin being rendered has a `column_width` of 75, meaning that the picture should span three columns. The `auto_thumbnail_size` processor populated the context with the variable `thumbnail_size = (546, 1092)` (because 3 × 170 + 2 × 18 = 546). This first element is how wide the image should be. The image should be scaled down maintaining aspect ratio, so it should have a height of 410px (because 546 / 1024 × 768 = 409.5). But how do we figure this out in the template? Luckily, Django comes with a built-in template tag called `widthratio` which does exactly this calculation:
 
     <!-- my-image-template.html -->
     <img src="{{ my_image.file.url }}" width="{{ thumbnail_size.0 }}" height="{% widthratio thumbnail_size.0 my_image.width my_image.height %}" />
