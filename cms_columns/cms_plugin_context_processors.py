@@ -8,8 +8,8 @@ according to the CMS_COLUMNS_GRID_WIDTH and CMS_COLUMNS_GRID_WIDTH_PIXELS settin
 def auto_thumbnail_size(instance, placeholder):
     dict = {}
     if (not hasattr(settings, 'CMS_COLUMNS_PLACEHOLDERS') \
-        or placeholder in settings.CMS_COLUMNS_PLACEHOLDERS):
-            if hasattr(instance, 'column_width'): 
+        or placeholder.slot in settings.CMS_COLUMNS_PLACEHOLDERS):
+            if hasattr(instance, 'column_width') and instance.column_width: 
                 dict.update(context_processors.get_auto_thumbnail_size(instance.column_width))
             else:
                 dict.update(context_processors.get_auto_thumbnail_size(100))
