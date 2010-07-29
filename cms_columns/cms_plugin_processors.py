@@ -6,7 +6,6 @@ import app_settings
 _current_row_width = 0
 
 def columns(instance, placeholder, rendered_content, original_context):
-    
     if not instance._render_meta.text_enabled and \
         (not hasattr(settings, 'CMS_COLUMNS_PLACEHOLDERS') or placeholder.slot in settings.CMS_COLUMNS_PLACEHOLDERS):
             global _current_row_width
