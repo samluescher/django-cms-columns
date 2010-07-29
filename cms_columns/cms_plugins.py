@@ -1,8 +1,10 @@
+from django.utils.translation import ugettext as _
+
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cms_columns.models import TextColumn, ManualBreak
-from django.utils.translation import ugettext as _
 from cms.plugins.text.cms_plugins import TextPlugin
+
+from cms_columns.models import TextColumn, ManualBreak
 
 class TextColumnPlugin(TextPlugin):
     model = TextColumn

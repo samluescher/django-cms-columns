@@ -2,9 +2,10 @@ from django.db import models
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models import FieldDoesNotExist
+from django.utils.translation import ugettext as _
+
 from cms_columns.models import AbstractColumn, TextColumn
 from cms_columns.cms_plugins import TextColumnPlugin
-from django.utils.translation import ugettext as _
 
 CONTRIBUTE_FIELDS = ['column_width',]
 

@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.template import Context
 from django.template.loader import render_to_string
-import app_settings
+import app_settings 
 
 _current_row_width = 0
 
